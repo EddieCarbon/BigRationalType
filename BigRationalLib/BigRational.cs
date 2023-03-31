@@ -87,14 +87,16 @@ namespace BigRationalLib
         public BigRational()
             : this( 0, 1 ) 
         {}
-
         #endregion
 
 
         #region accesor method
 
-        public static bool IsNaN(BigRational fraction) => fraction.Numerator == 0 && fraction.Denominator == 0;
-
+        public static bool IsNaN(BigRational fraction) => fraction.Numerator == 0 && fraction.Denominator == 0; // fraction == NaN
+        public static bool IsPositiveInfinity(BigRational fraction) => fraction.Equals(PositiveInfinity);
+        public static bool IsNegativeInfinity(BigRational fraction) => fraction.Equals(NegativeInfinity);
+        public static bool IsInfinity(BigRational fraction) => IsPositiveInfinity(fraction) || IsNegativeInfinity(fraction);
+        public static bool IsFinite(BigRational fraction) => !IsInfinity(fraction) && !IsNaN(fraction);
         #endregion
     }
 }
