@@ -54,8 +54,32 @@ namespace BigRationalLib
                 (Numerator, Denominator) = (-1, 0);
                 return;
             }
-        }
 
+            if (Numerator == 0 && Denominator != 0) // BigRational.Zero
+            {
+                Denominator = 1;
+                return;
+            }
+            
+            if (Denominator == 1) return;
+            if (Numerator == 1) return;
+
+            if (Numerator == Denominator) // BigRationa.One
+            {
+                (Numerator, Denominator) = (1, 1);
+                return;
+            }
+
+            if (2 * Numerator == Denominator)
+            {
+                (Numerator, Denominator) = (1, 2);
+                return;
+            }
+
+            BigInteger gcd = BigInteger.GreatestCommonDivisor(Numerator, Denominator);
+            (Numerator, Denominator) = (Numerator / gcd, Denominator / gcd);
+        }
+        
         public BigRational(BigInteger value)
             : this(value, 1)
         { }
@@ -63,6 +87,13 @@ namespace BigRationalLib
         public BigRational()
             : this( 0, 1 ) 
         {}
+
+        #endregion
+
+
+        #region accesor method
+
+        public static bool IsNaN(BigRational fraction) => fraction.Numerator == 0 && fraction.Denominator == 0;
 
         #endregion
     }
