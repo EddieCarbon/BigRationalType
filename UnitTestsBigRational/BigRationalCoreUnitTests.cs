@@ -3,7 +3,7 @@ using BigRationalLib;
 namespace UnitTestsBigRational
 {
     [TestClass]
-    public class UnitTest1
+    public class BigrationalCoreUnitTests
     {
         [DataTestMethod]
         [DataRow(1, 3, 1, 3)]
