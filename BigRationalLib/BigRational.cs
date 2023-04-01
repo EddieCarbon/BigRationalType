@@ -98,5 +98,14 @@ namespace BigRationalLib
         public static bool IsInfinity(BigRational fraction) => IsPositiveInfinity(fraction) || IsNegativeInfinity(fraction);
         public static bool IsFinite(BigRational fraction) => !IsInfinity(fraction) && !IsNaN(fraction);
         #endregion
+
+        public override string ToString()
+        {
+            if (IsNaN(this)) return NAN;
+            if (IsPositiveInfinity(this)) return POSITIVE_INFINITY;
+            if (IsNegativeInfinity(this)) return NEGATIVE_INFINITY;
+
+            return $"{Numerator}/{Denominator}";
+        }
     }
 }
