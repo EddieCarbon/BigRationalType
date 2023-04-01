@@ -1,6 +1,6 @@
 namespace BigRationalLib
 {
-    public class BigRationalConversions : IConvertible
+    public readonly partial struct BigRational : IConvertible
     {
         
     }
