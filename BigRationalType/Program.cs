@@ -7,9 +7,9 @@ namespace BigRationalType
     {
         static void Main(string[] args) 
         {
-            var u = new BigRational(0, 0);
-            
-            // u oraz v są "takie same"
+            var u = new BigRational(2,4);
+            var s = u.ToString();
+            Console.WriteLine(s);
         }
     }
 }
