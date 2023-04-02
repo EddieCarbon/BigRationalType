@@ -1,7 +1,7 @@
 namespace UnitTestsBigRational
 {
     [TestClass]
-    public class BigRationalRelationsUnitTests
+    public class BigRationalConversionsUnitTests
     {
     
     }
